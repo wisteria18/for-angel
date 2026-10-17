@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#fff0f5" />
+  <title>for angel ♡</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Pacifico&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --pink: #f6a9c6;
+      --pink-dark: #df6f9d;
+      --pink-light: #fff0f5;
+      --rose: #ffe0eb;
+      --cream: #fffafc;
+      --ink: #60394b;
+      --muted: #956d7e;
+      --white: #ffffff;
+      --shadow: 0 18px 55px rgba(196, 101, 141, .16);
+    }
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0; min-height: 100vh; color: var(--ink);
+      font-family: "DM Sans", system-ui, sans-serif;
+      background:
+        radial-gradient(circle at 8% 12%, rgba(255,255,255,.95) 0 2px, transparent 3px),
+        radial-gradient(circle at 92% 24%, rgba(255,255,255,.9) 0 3px, transparent 4px),
+        linear-gradient(145deg, #fff8fb, #ffe8f1 48%, #fff7fb);
+      overflow-x: hidden;
+    }
+    button { font: inherit; cursor: pointer; }
+    .floaties { position: fixed; inset: 0; pointer-events: none; overflow: hidden; z-index: 0; }
+    .floaty { position: absolute; bottom: -50px; color: rgba(223,111,157,.34); animation: floatUp linear infinite; }
+    @keyframes floatUp { to { transform: translateY(-115vh) rotate(25deg); opacity: 0; } }
+    .shell { position: relative; z-index: 1; width: min(760px, 100%); margin: auto; padding: 22px 16px 42px; }
+    .topline { display:flex; justify-content:space-between; align-items:center; gap:10px; margin: 0 auto 18px; width: min(620px,100%); color:var(--muted); font-size:.82rem; }
+    .brand { font-weight:700; letter-spacing:.02em; }
+    .progress { height: 6px; width: 130px; background: #f7d4e2; border-radius:99px; overflow:hidden; }
+    .progress-fill { width:20%; height:100%; background:var(--pink-dark); border-radius:99px; transition:width .35s ease; }
+    .screen { display:none; animation: appear .55s ease both; }
+    .screen.active { display:block; }
+    @keyframes appear { from { opacity:0; transform:translateY(12px) scale(.99); } to { opacity:1; transform:translateY(0) scale(1); } }
+    .card {
+      width: min(620px, 100%); margin: 0 auto; padding: clamp(24px, 6vw, 48px);
+      background: rgba(255,255,255,.82); border: 1px solid rgba(255,255,255,.95);
+      border-radius: 30px; box-shadow: var(--shadow); text-align:center; backdrop-filter: blur(10px);
+    }
+    .eyebrow { color:var(--pink-dark); font-weight:700; text-transform:uppercase; letter-spacing:.16em; font-size:.72rem; }
+    h1, h2 { margin: 12px 0; line-height:1.18; }
+    h1 { font-family:Pacifico, cursive; font-weight:400; font-size:clamp(2.2rem, 8vw, 4rem); color:#d96595; }
+    h2 { font-size:clamp(1.7rem, 5vw, 2.5rem); }
+    p { line-height:1.8; color:var(--muted); }
+    .lead { max-width:460px; margin: 12px auto 24px; }
+    .sticker { display:grid; place-items:center; width:100px; height:100px; margin:0 auto 20px; border-radius:32px; background:#fff0f6; font-size:3rem; transform:rotate(-5deg); box-shadow:0 8px 20px rgba(223,111,157,.13); }
+    .btn-row { display:flex; flex-wrap:wrap; justify-content:center; gap:10px; margin-top:26px; }
+    .btn { border:0; border-radius:999px; padding:13px 21px; font-weight:700; transition:transform .18s, box-shadow .18s; }
+    .btn:hover { transform:translateY(-2px); }
+    .primary { background:linear-gradient(135deg,#ed8db3,#df6f9d); color:white; box-shadow:0 8px 20px rgba(223,111,157,.25); }
+    .secondary { background:#fff0f6; color:#c95c8a; border:1px solid #f8d0e0; }
+    .tiny { font-size:.8rem; margin-top:18px; }
+    .letter { text-align:left; background:#fffafc; border:1px solid #f9dce8; border-radius:20px; padding:24px; margin-top:20px; position:relative; }
+    .letter:before { content:"♡"; position:absolute; top:10px; right:16px; color:#f0a4c2; font-size:1.5rem; }
+    .letter p { color:#765265; margin:0 0 13px; }
+    .letter p:last-child { margin-bottom:0; }
+    .photo-grid { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:12px; margin:24px 0 6px; }
+    .photo {
+      aspect-ratio: 4 / 5; border-radius:20px; overflow:hidden; background:linear-gradient(145deg,#fff0f6,#f9d4e3);
+      border:2px dashed #efafc8; display:flex; align-items:center; justify-content:center; position:relative;
+    }
+    .photo img { width:100%; height:100%; object-fit:cover; display:block; }
+    .photo .placeholder { padding:12px; color:#b75e84; font-size:.9rem; line-height:1.5; }
+    .photo .placeholder b { display:block; font-size:1.6rem; margin-bottom:6px; }
+    .photo-caption { font-size:.78rem; color:var(--muted); margin:6px 0 0; }
+    .memory-list { display:grid; gap:12px; margin-top:22px; text-align:left; }
+    .memory { border:1px solid #f7d5e3; border-radius:18px; background:#fffafd; overflow:hidden; }
+    .memory-toggle { width:100%; padding:17px 18px; display:flex; justify-content:space-between; align-items:center; border:0; color:var(--ink); background:transparent; text-align:left; font-weight:700; }
+    .memory-toggle span:last-child { color:var(--pink-dark); font-size:1.3rem; }
+    .memory-body { display:none; padding:0 18px 17px; color:var(--muted); line-height:1.7; }
+    .memory.open .memory-body { display:block; animation:appear .3s ease both; }
+    .map-card { margin:24px auto 0; padding:18px; border-radius:22px; background:linear-gradient(135deg,#fff1f7,#fffafd); border:1px solid #f8d4e2; }
+    .route { display:flex; align-items:center; justify-content:center; gap:12px; color:#cf6994; font-weight:700; }
+    .route-line { height:2px; width:80px; border-top:2px dashed #e7a0bb; position:relative; }
+    .route-line:after { content:"♡"; position:absolute; left:43%; top:-15px; background:#fff5f9; padding:0 4px; }
+    .small-note { font-size:.8rem; }
+    .envelope-wrap { margin:24px auto 10px; width:180px; height:132px; position:relative; cursor:pointer; }
+    .envelope { position:absolute; inset:22px 0 0; background:#f4a6c4; border-radius:8px; box-shadow:0 10px 24px rgba(210,101,145,.2); }
+    .envelope:before { content:""; position:absolute; top:0; left:0; border-left:90px solid transparent; border-right:90px solid transparent; border-top:65px solid #f8c1d5; z-index:3; transform-origin:top; transition:transform .5s; }
+    .envelope:after { content:""; position:absolute; bottom:0; left:0; border-left:90px solid #ee91b4; border-right:90px solid #ee91b4; border-top:55px solid transparent; border-bottom:55px solid #ee91b4; border-radius:0 0 8px 8px; z-index:2; }
+    .envelope-letter { position:absolute; left:14px; right:14px; bottom:12px; height:92px; background:#fffafd; border-radius:7px; z-index:1; display:grid; place-items:center; color:#d96595; font-size:2rem; transition:transform .5s; }
+    .envelope.open:before { transform:rotateX(180deg); z-index:0; }
+    .envelope.open .envelope-letter { transform:translateY(-62px); }
+    .question { font-family:Pacifico,cursive; font-size:clamp(2rem,7vw,3.2rem); color:#d96595; margin:18px 0; }
+    .final-letter { display:none; margin-top:20px; text-align:left; }
+    .final-letter.show { display:block; animation:appear .5s ease both; }
+    .yes-result { display:none; margin-top:24px; padding:22px; border-radius:22px; background:#fff0f6; border:1px solid #f7c9dc; }
+    .yes-result.show { display:block; animation:appear .5s ease both; }
+    .footer { text-align:center; font-size:.75rem; color:#b17b92; padding:22px 0 0; }
+    .back { margin-top:22px; background:transparent; border:0; color:#b56b8b; font-size:.85rem; }
+    .confetti { position:fixed; z-index:10; top:-20px; font-size:20px; pointer-events:none; animation:confettiFall 2.8s ease-in forwards; }
+    @keyframes confettiFall { to { transform:translateY(110vh) rotate(540deg); opacity:0; } }
+    @media (max-width:430px) { .card { border-radius:24px; padding:25px 18px; } .photo-grid { gap:8px; } .photo { border-radius:15px; } .topline { font-size:.75rem; } }
+  </style>
+</head>
+<body>
+  <div class="floaties" id="floaties" aria-hidden="true"></div>
+  <main class="shell">
+    <div class="topline">
+      <div class="brand">a little thing for angel ♡</div>
+      <div class="progress" aria-label="progress"><div class="progress-fill" id="progressFill"></div></div>
+    </div>
+
+    <section class="screen active" data-step="0">
+      <div class="card">
+        <div class="sticker">🎀</div>
+        <div class="eyebrow">made with love, just for you</div>
+        <h1>hey, angel ♡</h1>
+        <p class="lead">i made a little something for you. there's no rush — just tap through it and let me be a little cheesy for a minute.</p>
+        <div class="btn-row"><button class="btn primary" onclick="goTo(1)">open your little world →</button></div>
+        <p class="tiny">from your ralphie ♡</p>
+      </div>
+    </section>
+
+    <section class="screen" data-step="1">
+      <div class="card">
+        <div class="sticker">💌</div>
+        <div class="eyebrow">a little note</div>
+        <h2>before anything else...</h2>
+        <p>i wanted to make something that you could come back to, something that reminds you how special you are to me.</p>
+        <div class="letter">
+          <p>angel,</p>
+          <p>i love getting to know you — all the little things you tell me, the things that make you smile, and the parts of yourself you let me see.</p>
+          <p>even with an ocean between us, you’ve become someone i look forward to talking to and someone id love to keep making memories with.</p>
+          <p>this is my little way of making a moment for us. ♡</p>
+          <p>— ralphie</p>
+        </div>
+        <div class="btn-row"><button class="btn primary" onclick="goTo(2)">keep going ♡</button></div>
+        <button class="back" onclick="goTo(0)">← go back</button>
+      </div>
+    </section>
+
+    <section class="screen" data-step="2">
+      <div class="card">
+        <div class="eyebrow">little things i adore</div>
+        <h2>the angel things ♡</h2>
+        <p>tap each card —.</p>
+        <div class="memory-list">
+          <div class="memory"><button class="memory-toggle" onclick="toggleMemory(this)"><span>♡ the way you make me smile</span><span>＋</span></button><div class="memory-body">your silly lil jokes and the way you catch my references never fail to make me smile, you brighten up my day significantly and i hope you continue to be my silly lil lady.</div></div>
+          <div class="memory"><button class="memory-toggle" onclick="toggleMemory(this)"><span>🌷 the little things about you</span><span>＋</span></button><div class="memory-body">i cant help but love all of the little things about you, that laugh, your cutee smirks, the way you choose to put your faith in people even when the world treats you roughly, i really admire that about you.</div></div>
+          <div class="memory"><button class="memory-toggle" onclick="toggleMemory(this)"><span>🧸 the person you are</span><span>＋</span></button><div class="memory-body">you are nothing short of being the sweetest girl ive ever met, you are selfless and non-judgemental, i want you to know that you make me feel so appreciated and that i feel safe to be myself with you.</div></div>
+        </div>
+        <p class="small-note">.</p>
+        <div class="btn-row"><button class="btn primary" onclick="goTo(3)">a few memories →</button></div>
+        <button class="back" onclick="goTo(1)">← go back</button>
+      </div>
+    </section>
+
+    <section class="screen" data-step="3">
+      <div class="card">
+        <div class="eyebrow">our little corner of the world</div>
+        <h2>you, in pictures ♡</h2>
+        <p>looook how cute my baby is</p>
+        <div class="photo-grid">
+          <div><div class="photo"><img src="angel-photo-1.jpg" alt="angel" onerror="this.style.display='none'"><div class="placeholder"><b>🌸</b>add angel-photo-1.jpg</div></div><p class="photo-caption">the girl i cherish</p></div>
+          <div><div class="photo"><img src="angel-photo-2.jpg" alt="angel" onerror="this.style.display='none'"><div class="placeholder"><b>🎀</b>add angel-photo-2.jpg</div></div><p class="photo-caption">pretty lil lady</p></div>
+        </div>
+        <div class="map-card">
+          <div class="route"><span>🇮🇪 ireland</span><span class="route-line"></span><span>🇺🇸 america</span></div>
+          <p class="small-note">different places, one little story — and hopefully lots of memories still to come.</p>
+        </div>
+        <div class="btn-row"><button class="btn primary" onclick="goTo(4)">one last thing... 💗</button></div>
+        <button class="back" onclick="goTo(2)">← go back</button>
+      </div>
+    </section>
+
+    <section class="screen" data-step="4">
+      <div class="card">
+        <div class="eyebrow">something i've wanted to ask</div>
+        <h2>i saved this part for last...</h2>
+        <p>there’s one little thing i want to ask you properly, angel.</p>
+        <div class="envelope-wrap" onclick="openEnvelope()" role="button" tabindex="0" aria-label="Open the letter envelope">
+          <div class="envelope" id="envelope"><div class="envelope-letter">♡</div></div>
+        </div>
+        <p class="small-note" id="envelopeHint">tap the envelope to open your letter</p>
+        <div id="finalQuestion" style="display:none">
+          <div class="question">will you be my girlfriend? ♡</div>
+          <p>i want to keep choosing you, learning you, and building something real together — one call, one visit, and one memory at a time.</p>
+          <div class="btn-row">
+            <button class="btn primary" onclick="sayYes()">yes, ralphie ♡</button>
+            <button class="btn secondary" onclick="talkFirst()">i want to talk first</button>
+          </div>
+        </div>
+        <div class="final-letter letter" id="talkLetter">
+          <p>of course, angel. ♡</p>
+          <p>there’s no pressure to answer a certain way. i wanted to ask you honestly, and i want us to be able to talk honestly too.</p>
+          <p>when you're ready, let's talk about it together.</p>
+          <p>— ralphie</p>
+        </div>
+        <div class="yes-result" id="yesResult">
+          <div style="font-size:2.6rem">💗🎀💗</div>
+          <h2>you just made me so happy, angel!</h2>
+          <p>thank you for choosing me. here's to us, to all the little moments, and to the day the distance feels a little smaller.</p>
+          <p style="font-family:Pacifico,cursive;color:#d96595;font-size:1.5rem">love, ralphie ♡</p>
+        </div>
+        <button class="back" onclick="goTo(3)">← go back</button>
+      </div>
+    </section>
+    <div class="footer">made with ♡ by ralphie, for angel</div>
+  </main>
+
+  <script>
+    const screens = [...document.querySelectorAll('.screen')];
+    function goTo(step) {
+      screens.forEach((s, i) => s.classList.toggle('active', i === step));
+      document.getElementById('progressFill').style.width = ((step + 1) / screens.length * 100) + '%';
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+    function toggleMemory(button) {
+      const card = button.closest('.memory');
+      card.classList.toggle('open');
+      button.querySelector('span:last-child').textContent = card.classList.contains('open') ? '−' : '＋';
+    }
+    let envelopeOpened = false;
+    function openEnvelope() {
+      if (envelopeOpened) return;
+      envelopeOpened = true;
+      document.getElementById('envelope').classList.add('open');
+      document.getElementById('envelopeHint').textContent = 'a little letter, just for you ♡';
+      setTimeout(() => { document.getElementById('finalQuestion').style.display = 'block'; }, 450);
+    }
+    function talkFirst() {
+      document.getElementById('talkLetter').classList.add('show');
+      document.getElementById('yesResult').classList.remove('show');
+    }
+    function sayYes() {
+      document.getElementById('yesResult').classList.add('show');
+      document.getElementById('talkLetter').classList.remove('show');
+      burstHearts();
+    }
+    function burstHearts() {
+      const symbols = ['♡','💗','💕','🎀','✿'];
+      for (let i = 0; i < 34; i++) {
+        const el = document.createElement('div');
+        el.className = 'confetti';
+        el.textContent = symbols[Math.floor(Math.random() * symbols.length)];
+        el.style.left = Math.random() * 100 + 'vw';
+        el.style.animationDelay = (Math.random() * .7) + 's';
+        el.style.fontSize = (14 + Math.random() * 18) + 'px';
+        document.body.appendChild(el);
+        setTimeout(() => el.remove(), 3600);
+      }
+    }
+    // Soft floating hearts in the background
+    const floaties = document.getElementById('floaties');
+    for (let i = 0; i < 15; i++) {
+      const el = document.createElement('span');
+      el.className = 'floaty';
+      el.textContent = ['♡','♥','✿','⋆'][i % 4];
+      el.style.left = Math.random() * 100 + '%';
+      el.style.animationDuration = (9 + Math.random() * 12) + 's';
+      el.style.animationDelay = (-Math.random() * 15) + 's';
+      el.style.fontSize = (15 + Math.random() * 20) + 'px';
+      floaties.appendChild(el);
+    }
+    document.querySelectorAll('.photo img').forEach(img => {
+      img.addEventListener('load', () => {
+        img.nextElementSibling.style.display = 'none';
+      });
+    });
+  </script>
+</body>
+</html>
